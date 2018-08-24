@@ -1,0 +1,256 @@
+.base-textcolor{
+    color : #00B389;
+}
+.base-bg{
+    background : #00B389;
+}
+.bg-codepark{
+    background-color : #00B389;
+    color : #fff;
+}
+.btn-codepark {
+    color: #fff;
+    background-color: #00B389;
+    border-color: #00B389;
+}
+
+.btn-codepark:hover {
+    color: #fff;
+    background-color: #009975;
+    border-color: #009975;
+}
+
+.btn-codepark:focus, .btn-codepark.focus {
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.5);
+}
+
+.btn-codepark.disabled, .btn-codepark:disabled {
+    color: #fff;
+    background-color: #00B389;
+    border-color: #00B389;
+}
+
+.btn-codepark:not(:disabled):not(.disabled):active, .btn-codepark:not(:disabled):not(.disabled).active,
+.show > .btn-codepark.dropdown-toggle {
+    color: #fff;
+    background-color: #00664e;
+    border-color: #008062;
+}
+
+.btn-codepark:not(:disabled):not(.disabled):active:focus, .btn-codepark:not(:disabled):not(.disabled).active:focus,
+.show > .btn-codepark.dropdown-toggle:focus {
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.5);
+}
+
+.btn-outline-codepark {
+    border-color: #00B389;
+    color: #00B389;
+    background-color: transparent;
+    background-image: none;
+}
+
+.btn-outline-codepark:hover {
+    color: #fff;
+    background-color: #00B389;
+    border-color: #00B389;
+}
+
+.btn-outline-codepark:focus, .btn-outline-codepark.focus {
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.5);
+}
+
+.btn-outline-codepark.disabled, .btn-outline-codepark:disabled {
+    color: #00B389;
+    background-color: transparent;
+}
+
+.btn-outline-codepark:not(:disabled):not(.disabled):active, .btn-outline-codepark:not(:disabled):not(.disabled).active,
+.show > .btn-outline-codepark.dropdown-toggle {
+    color: #fff;
+    background-color: #00B389;
+    border-color: #00B389;
+}
+
+.btn-outline-codepark:not(:disabled):not(.disabled):active:focus, .btn-outline-codepark:not(:disabled):not(.disabled).active:focus,
+.show > .btn-outline-codepark.dropdown-toggle:focus {
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.5);
+}
+.sub-heading{
+    font-weight: bolder;
+    text-align: center;
+}
+.sub-heading-desc{
+    text-align: justify;
+    text-justify: inter-word;
+    padding : 0 5% 0 5%;
+}
+.show{
+    height: 100%;
+    opacity: 1;
+    background-size: cover;
+    position: relative;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+}
+/*
+For images of very-small size
+*/
+.avatar-v-small{
+    height : 30px;
+    width : 30px;
+}
+/*
+For images of small size
+*/
+.avatar-small{
+    height : 40px;
+    width : 40px;
+}
+/*
+For images of medium size
+*/
+.avatar-medium{
+    height : 100px;
+    width : 100px;
+}
+/*
+For images of large size
+*/
+.avatar-large{
+    height : 150px;
+    width : 150px;
+}
+/*Codepark logo medium*/
+.codepark-logo-md{
+    height : 50px;
+    width : 75px;
+}
+
+/*Codepark logo small*/
+.codepark-logo-sm{
+    height : 30px;
+    width : 55px;
+}
+.hr-white{
+    background-color: #fff;
+}
+.hr-dark{
+    background : #000;
+}
+.hr-full {
+    background-color: #fff;
+    width:80%;
+}
+.hr-half {
+    background-color: #fff;
+    width:50%
+}
+.hr-quarter {
+    background-color: #fff;
+    width:30%
+}
+
+.hr-full-dark {
+    background-color: #000;
+    width:80%;
+}
+.hr-half-dark {
+    background-color: #000;
+    width:50%
+}
+.hr-quarter-dark {
+    background-color: #000;
+    width:30%
+}
+footer{
+    text-align: center;
+    background-color: light-grey ; /*d9d9d9*/
+    color: black;
+    padding:10px;
+}
+footer a{
+    color: blue;
+    text-decoration: none;
+}
+.react-btn{
+    padding : 5px;
+    border-radius : 2px;
+    cursor: pointer;
+    text-align:center;
+    /*transition: all 0.5s;*/
+}
+.react-btn:hover{
+    /*background : #ccc;*/
+    /*border: 1px solid #00B389;*/
+    color : #00B389;
+}
+/*to handle all the reacts*/
+.reacted{
+    color : #00B389;
+    /*transition: 0.3s;*/
+}
+.not-reacted{
+    color : #000;
+    /*transition: 0.3s;*/
+}
+
+.btn{
+    cursor : pointer;
+}
+.text-extra-small{
+    font-size : 13px;
+}
+.text-vsmall{
+    font-size : 15px;
+}
+.text-small{
+    font-size : 20px;
+}
+.text-medium {
+    font-size : 25px;
+}
+.text-large {
+    font-size : 30px;
+}
+.text-xlarge {
+    font-size : 35px;
+}
+
+.spinner{
+    width:100%;
+    height:100%;
+    position:fixed;
+    top:50%;
+    left:50%;
+}
+.loader{
+    border-radius: 10px;
+}
+.align-center{
+    text-align : center;
+}
+/*For mobile views*/
+@media screen and (max-width: 600px) {
+    .text-vsmall{
+        font-size : 12px;
+    }
+    .text-small{
+        font-size : 15px;
+    }
+    .text-medium {
+        font-size : 20px;
+    }
+    .text-large {
+        font-size : 25px;
+    }
+    .text-xlarge {
+        font-size : 30px;
+    }
+}
+.ng-enter{
+    animation: scaleUp 0.5s both ease-in; z-index: 8888;
+}
+.ng-leave{
+    animation: slideOutLeft 0.5s both ease-in; z-index: 9999;
+}

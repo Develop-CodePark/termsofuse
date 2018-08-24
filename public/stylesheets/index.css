@@ -1,0 +1,254 @@
+body{
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: #f7f7f7;
+    color : #212529;
+    font-family: 'Lato', san-sarif;
+}
+a{
+    color : #00B389;
+}
+a:hover,a:click{
+    color : #00B389;
+}
+nav{
+    height : 80px;
+    background : #fff;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+}
+.nav-wrapper{
+    display : flex;
+    position : relative;
+}
+.nav-render{
+    text-align: center;
+    font-weight : 600;
+    padding : 15px;
+}
+.nav-burger{
+    padding : 20px;
+}
+.nav-text{
+    padding : 20px;
+}
+.nav-burger:hover{
+    cursor : pointer;
+}
+.main-nav-content{
+    text-align: right;
+    padding : 10px;
+    font-weight: 600;
+}
+.render-pad{
+    margin : 70px 0 0 0;
+    -webkit-transition: 0.6s;
+    -moz-transition: 0.6s;
+    -ms-transition: 0.6s;
+    -o-transition: 0.6s;
+    transition: 0.6s;
+}
+.ptext {
+    position: absolute;
+    top: 48%;
+    width: 100%;
+    text-align: center;
+}
+.ptext span{
+    padding: 30px;
+    color: #ffffff;
+}
+.large-section{
+    min-height: 500px;
+}
+.medium-section{
+    min-height: 300px;
+}
+.small-section{
+    min-height: 150px;
+}
+.show-main{
+    background: linear-gradient(to bottom right,#cc00ff, #00b389);
+    /*background-image: url('../images/contact.png');*/
+    /*background : #000fff;*/
+}
+.show-team{
+    background: linear-gradient(to bottom right,#3333ff, #00b389);
+}
+.show-event{
+    background: linear-gradient(to bottom right,#ff3300, #00b389);
+ }
+.show-contact{
+    background: linear-gradient(to bottom right,#df80ff, #4d004d);
+}
+.show-about{
+    background: linear-gradient(to bottom right,#ff00ff, #4d004d);
+}
+section{
+    text-align: left;
+    padding: 50px 20px;
+}
+section h2{
+    text-transform: uppercase;
+}
+.section-light{
+    background-color: #F7F7F7;
+    color:#666666;
+}
+.section-dark{
+    background-color: rgba(5, 0, 8, 0.76);
+    color: #DDDDDD;
+}
+
+.footer-upper-content{
+    display: block;
+    width : 100%;
+    text-align: center;
+    padding : 10px;
+    border-top : #00B389 thin solid;
+    border-bottom : #00B389 thin solid;
+}
+.footer-lower-content{
+    text-align: right;
+    padding : 10px;
+}
+.section{
+    border-right: #00B389 thin solid;
+    padding : 0 20px 0 20px;
+}
+.section:after{
+    border-right: #00B389 thin solid;
+    padding : 0 20px 0 20px;
+}
+.section>a{
+    color : #737373;
+    font-size : small;
+    font-weight : 600;
+}
+.section>a:hover{
+    text-decoration-color: #00B389;
+    font-weight : 600;
+}
+.section>a:touched{
+    text-decoration-color: #00B389;
+    font-weight : 600;
+}
+.section:last-child{
+              border-right: 0px;
+          }
+.intro-text{
+    padding : 5%;
+    text-align : right;
+}
+.card {
+    /*box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);*/
+    transition: 0.3s;
+    padding : 5%;
+    width : 100%;
+    text-align: center;
+}
+.card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+@media screen and (max-width: 600px){
+    .ptext>span {
+        font-size : 25px;
+    }
+    .showcase1{
+        background: linear-gradient(180deg, #00B389 0%, #1488cc 80%, #00B389 100%);
+        /*background-image: url('../images/image5.jpg');*/
+        /*background : #000fff;*/
+        min-height: 350px;
+    }
+    .section:nth-child(n){
+        border-right: 0px;
+    }
+    .main-nav-content{
+        display : none;
+    }
+    .nav-burger{
+        display : block;
+    }
+}
+/* The side navigation menu */
+.sidenav {
+    height: 100%; /* 100% Full-height */
+    width: 0; /* 0 width - change this with JavaScript */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Stay on top */
+    top: 0; /* Stay at the top below the navbar */
+    left: 0;
+    background-color: #f2f2f2; /* #666*/
+    overflow-x: hidden; /* Disable horizontal scroll */
+    transition: 0.3s; /* 0.3 second transition effect to slide in the sidenav */
+    text-align : center;
+}
+/* The menu text */
+.sidenav-header {
+    padding: 90px 5px 5px 0px;
+    text-decoration: none;
+    display: block;
+    transition: 0.2s;
+}
+/* The navigation menu links */
+.sidenav a {
+    color : #666;
+    padding: 5px 5px 5px 0px;
+    text-decoration: none;
+    display: block;
+    transition: 0.3s;
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidenav a:hover {
+    color: #222;
+    text-decoration-color: #00B389;
+}
+
+/* Position and style the close button (top right corner) */
+.sidenav .close-nav-btn {
+    position: absolute;
+    cursor: pointer;
+    top: 75px;
+    right: 20px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+.sidenav-header-container{
+    background : #fff;
+    color : #666;
+}
+.sidenav-body-container{
+    /*background : grey;*/
+    /*color : #555;*/
+}
+.sidenav-footer-container{
+    background : #fff;
+    color : #888;
+}
+.cross-btn:hover{
+    -webkit-transition: .2s;
+    -moz-transition: .2s;
+    -ms-transition: .2s;
+    -o-transition: .2s;
+    transition: .2s;
+    -webkit-transform: rotate(-180deg) scale(1.2);
+    -moz-transform: rotate(-180deg) scale(1.2);
+    -ms-transform: rotate(-180deg) scale(1.2);
+    -o-transform: rotate(-180deg) scale(1.2);
+    transform: rotate(-180deg) scale(1.2);
+}
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+@media screen and (max-height: 600px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+}
+/*
+For lerge screen
+*/
+@media screen and (min-width: 601px) {
+    .nav-burger{
+        display : none;
+    }
+}

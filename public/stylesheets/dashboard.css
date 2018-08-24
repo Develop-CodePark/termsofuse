@@ -1,0 +1,129 @@
+body{
+    font-family: 'Raleway', sans-serif;
+    margin : 0px;
+    padding : 0px;
+    background : #e0ebeb;
+}
+a{
+    color : #000;
+}
+a:hover{
+    color : #000;
+}
+
+.nav-top{
+    background-color : #00B389;
+    color : #fff;
+    transition : 0.4s;
+    /*position : relative;*/
+}
+.nav-codepark-logo{
+    /*padding : 10px 0;*/
+}
+.nav-text{
+    /*padding : 20px 0 0 40px;*/
+    font-size : 20px;
+    font-family: 'Raleway', san-sarif;
+    font-weight : 900;
+}
+.nav-user-image{
+    cursor: pointer;
+}
+.nav-user-image:hover .nav-user-image:click .dropdown-animated{
+    -webkit-transform: translateY(0);
+    -moz-transform: translateY(0);
+    -ms-transform: translateY(0);
+    -o-transform: translateY(0);
+    transform: translateY(0);
+    opacity: 1;
+    z-index: 1;
+}
+.dropdown-animated{
+    margin : 20px 0 0 0;
+    position: absolute;
+    list-style: none;
+    width : 150px;
+    background : #00B389;
+    text-align: left;
+    -webkit-transform: translateY(25px);
+    -moz-transform: translateY(25px);
+    -ms-transform: translateY(25px);
+    -o-transform: translateY(25px);
+    transform: translateY(25px);
+    z-index: -1;
+    opacity: 0;
+    -webkit-transition: 0.4s;
+    -moz-transition: 0.4s;
+    -ms-transition: 0.4s;
+    -o-transition: 0.4s;
+    transition: 0.4s;
+}
+.dropdown-animated li{
+    padding-left: 10px;
+    height: 45px;
+    line-height: 45px;
+}
+.dropdown-animated li a{
+    color: #fff;
+    text-decoration: none;
+    cursor: pointer;
+}
+.dropdown-animated li a:hover{
+    color: #fff;
+    text-decoration: none;
+}
+.card {
+    /*box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);*/
+    transition: 0.3s;
+    padding : 2%;
+    width : 100%;
+}
+.card:hover {
+    /*box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);*/
+}
+.wrapper{
+    width: 100%;
+    margin : 2% 0 0 0;
+}
+.basic-user-info-container{
+    /*position: fixed;*/
+    /*overflow-y: scroll;*/
+}
+.content-leaf{
+    margin : 0 0 2% 0;
+}
+.content-branch{
+    overflow-y: auto;
+}
+.actionBtn{
+    padding : 5px;
+    text-align:center;
+}
+.questionBox{
+    border-radius : 2px;
+    height : 100px;
+    margin : 0 0 3% 0;
+}
+div.ask-question-fake>a:hover{
+    text-decoration : none;
+}
+pre{
+    padding:3%;
+    margin : 2%;
+    white-space: pre-wrap;
+    background-color : #000;
+    color : #fff;
+    border-radius : 5px;
+}
+.question-title{
+    font-weight : 600;
+}
+/* When the width is between 0px and 750px*/
+@media screen and (max-width: 750px) and (min-width: 0px) {
+    .basic-user-info-container{
+        display : none;
+    }
+    .nav-top{
+        display : inline-flex;
+    }
+}
