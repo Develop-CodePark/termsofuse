@@ -3,6 +3,7 @@ html, body {
     font-family: 'Open Sans', sans-serif;
     color: #444;
     grid-template-rows: 30% auto;
+    margin:0px;
     /*font-size: 15px;*/
 }
 .navbar-container {

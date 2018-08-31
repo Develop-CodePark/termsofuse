@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html ng-app="codepark" ng-controller="dashboardController">
+
+<head>
+    <base href="/dashboard">
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta name="keywords" content="CodePark,code,sharing,Coding,Codepark.in,Raj Chandra,startup">
+    <meta name="author" content="CodePark">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Dashboard</title>
+    <!-- Google Tag Manager -->
+    <!--<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':-->
+            <!--new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],-->
+            <!--j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=-->
+            <!--'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);-->
+        <!--})(window,document,'script','dataLayer','GTM-MRXBWHM');</script>-->
+    <!--&lt;!&ndash; End Google Tag Manager &ndash;&gt;-->
+
+    <!--Bing Search-->
+    <meta name="msvalidate.01" content="E46B65D6221D1B64BEAB96010BBF479F" />
+
+    <!--Font awesome-->
+    <script src="vendors/fontawesome/js/all.js" ></script>
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!--Bootstrap 4-->
+    <link rel="stylesheet" href="../vendors/bootstrap/css/bootstrap.min.css">
+
+    <!--Jquery and Bootstrap scripts-->
+    <script src="/vendors/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="/vendors/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/vendors/typed.min.js"></script>
+
+    <!-- for mccafe-->
+    <script type="text/javascript" src="https://cdn.ywxi.net/js/1.js" async></script>
+
+    <!--Angular Goes Here-->
+    <script src="/vendors/angular/angular.min.js"></script>
+    <script src="/vendors/angular/angular-route.min.js"></script>
+    <script language="javascript" type="text/javascript" src="/javascripts/controllers/dashboard.js"></script>
+    <script language="javascript" type="text/javascript" src="/javascripts/assets/dashboard.js"></script>
+
+    <!--Custom CSS-->
+    <link rel="stylesheet" href="/stylesheets/dashboard.css">
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <link rel="stylesheet" href="/stylesheets/questionPage.css">
+    <link rel="icon" href="/images/favicon.ico" type="image/ico" sizes="16x16">
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+
+    <!-- McCafe secured -->
+    <script type="text/javascript" src="https://cdn.ywxi.net/js/1.js" async></script>
+
+    <!--GooGle Analytics-->
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                    (i[r].q = i[r].q || []).push(arguments)
+                }, i[r].l = 1 * new Date(); a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+        ga('create', 'UA-99147431-6', 'auto');
+        ga('send', 'pageview');
+    </script>
+</head>
+
+<body ng-cloak>
+<div class="container-fluid sticky-top">
+    <nav class="row nav-top" ng-init="getQuestionViewDetails()">
+        <div class="col-lg-2 col-md-4 col-sm-2 pt-2 pd-3 nav-codepark-logo">
+            <a href="/dashboard"><img class="codepark-logo codepark-logo-md float-right" src="/images/logo_codepark.jpg" alt="CodePark Logo"></a>
+        </div>
+        <div class="col-lg-8 col-md-6 col-sm-5 pt-3 nav-text">
+            <div class="nav-search-bar">
+                <form class="form" ng-submit="searchResults()">
+                    <a href="/content/#/search">
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control search-bar-input" placeholder=""
+                                   aria-label="searchBar" aria-describedby="searchBar" ng-model="query"
+                                   ng-keyup="searchPredictor()">
+                            <div class="input-group-append">
+                                <button class="btn btn-codepark" type="submit"><i class="fas fa-search  "></i>
+                                </button>
+                            </div>
+                        </div>
+                    </a>
+                </form>
+                <script>
+                    var typed = new Typed('input[placeholder]', {
+                        strings: ["Make a search ..","What is python code to add two numbers?", "Code to swap two numbers without using the third?","JAVA code to find the largest number in a large array?","How to ...","Code for ...","python code for ..."],
+                        backSpeed : 10,
+                        typeSpeed : 40,
+                        loop : true,
+                        stringsElement: null,
+                        smartBackspace: true // Default value
+                    });
+                </script>
+            </div>
+        </div>
+        <div class="col-lg-2 col-md-2 col-sm-2 pt-2 nav-user-image">
+            <!-- profile image -->
+            <div class="dropdown-container">
+                <i class="material-icons">notifications</i>
+                <div class="#" title="{{currUser.fullName}}">
+                    <img src="{{questionData.askedBy_profileImage}}" alt="{{questionData.askedBy_name.firstName}}" class="img-fluid rounded-circle avatar-small user-avatar">
+                </div>
+                <!-- Dropdown menu -->
+                <ul class="dropdown-animated">
+                    <li><a href="#">Html</a></li>
+                    <li><a href="#">CSS</a></li>
+                    <li>JS</li>
+                    <li>Bootstrap</li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</div>
+<div class="container-fluid wrapper">
+    <div class="row">
+        <div class="col-lg-3 col-md-4 col-sm-12 col-xs-12 basic-user-info-container" ng-init="userBasicProfile()">
+            <div class="card text-center">
+                <div class="profile-image-container">
+                    <img src="{{user.profileImage}}" alt="codepark-user-image" class="rounded-circle avatar-medium">
+                    <p class="username">Hi {{user.name.firstName}}</p>
+                    <hr class="hr-half"><br>
+                </div>
+                <div class="interest-container">
+                    <h5>Your Interests</h5>
+                    <div class="list-group list-group-flush" ng-repeat="topic in user.interest">
+                        <a href="/content/tags/{{topic}}">
+                                <span class="badge badge-primary">{{topic | uppercase}}</span>
+                        </a>
+                    </div>
+                    <hr class="hr-half">
+                </div>
+                <div class="points-container">
+                    <!--<h5>Points</h5>-->
+                    <span class="fa-4x">{{user.points.total}}</span>
+                    <span class="badge badge-danger"> points</span>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 col-md-8 col-sm-12 col-xs-12 content-container" ng-init="getReleventContent()">
+            <div class="ask-question-fake">
+                <a class="fake-ask" href="/content">
+                    <section class="questionBox card" contenteditable="false">
+                        <span class="pull-attention">Add a new Question ?</span>
+                    </section>
+                </a>
+            </div>
+            <!--Content-->
+            <div class="content-overflow content-branch">
+                <!--Card view for each content-->
+                <div class="card content-leaf" ng-repeat="content in contents">
+                    <div class="container question-container">
+                        <!--Who asked this question-->
+                        <div class="author text-faded">
+                            <span class="avatar-container">
+                                <img src="{{content.askedBy.profileImage}}" alt="codepark-user" class="img-fluid rounded-circle avatar-v-small"></span>
+                            <span class="name-container"> {{content.askedBy.name.fullName}} </span>
+                            <span> asked this.</span>
+                        </div>
+                        <!--Main question-->
+                        <div class="q-text">
+                            <a href="/content/#/view/{{content.uid}}">
+                                <span class="question-title text-small">{{content.questionTitle}}</span>
+                            </a>
+                            <!--sub question-->
+                            <!--<div class="col-12 text-truncate">-->
+                                <!--{{content.subQuestion}}-->
+                            <!--</div>-->
+                        </div>
+                    </div>
+
+
+                    <!--Answer-->
+                    <section class="answer-container" ng-if="content.answered">
+                        <hr>
+                        <div class="about-the-author">
+                        <span class="avatar-container">
+                            <img src="{{content.answers[0].answeredBy.profileImage}}" alt="codepark user" class="img-fluid rounded-circle avatar-small">
+                        </span>
+                            <span class="author-name">{{content.answers[0].answeredBy.name.fullName}}</span>
+                            <span ng-if="content.answers[0].answeredBy.about">,</span>
+                            <span class="author-headline font-weight-light">{{content.answers[0].answeredBy.about}}</span>
+                        </div>
+                        <article>
+                            <!-- Featured answer -->
+                            <pre class="pre-scrollable">{{content.answers[0].answer}}</pre>
+                        </article>
+                    </section>
+
+                    <!--
+                    React button container
+                    -->
+                    <div class="container" ng-if="content.answered && content.answers[0].answeredBy.uid !== user.uid">
+                        <div class="row reactBtn-container">
+                            <!--cup-->
+                            <div class="col-4 react-btn">
+                                <span><i class="fas fa-coffee"></i>&nbsp; | &nbsp;{{content.answers[0].upvotes}}</span>
+                            </div>
+                            <!--hash-->
+                            <div class="col-4 react-btn">
+                                <span><i class="fas fa-hashtag"></i>&nbsp; | &nbsp;{{content.answers[0].downvotes}}</span>
+                            </div>
+                            <!--random-->
+                            <div class="col-4 react-btn">
+                                <span><i class="fas fa-eye"></i>&nbsp; | &nbsp;{{content.answers[0].views}}</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!--
+                        Don't show this if the current user has posted this question
+                        otherwise show this all other time
+                         -->
+
+                    <div class="row unanswered-container" ng-if="content.askedBy.uid !== user.uid">
+                        <div class="col-6 react-btn">
+                            <a href="/content/#/answer/{{content.uid}}">
+                                <span><i class="fas fa-edit"></i>&nbsp;Answer</span>
+                            </a>
+                        </div>
+                        <div class="col-6 react-btn">
+                            <a href="">
+                                <span><i class="fas fa-rss-square"></i>&nbsp;Follow</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!--
+                        view and comment options to the user
+                    -->
+                    <div class="row edit-options" ng-if="content.answered && content.answers[0].answeredBy.uid === user.uid">
+                        <div class="col-6 react-btn">
+                            <a href="/content/#/view/{{content.uid}}">
+                                <span><i class="fas fa-info-circle"></i>&nbsp;View</span>
+                            </a>
+                        </div>
+                        <div class="col-6 react-btn">
+                            <a href="">
+                                <span><i class="fas fa-trash"></i>&nbsp;Comment</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 d-md-none recommended-content-container">
+                    <div>
+                        <div class="r-question-container">
+                            <div class="question-title"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+
+</html>
