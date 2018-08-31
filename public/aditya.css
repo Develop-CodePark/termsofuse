@@ -82,16 +82,11 @@ html,body {
 	cursor: pointer;
 }
 .bell {
-	/*margin-left: 2rem;*/
 	color: #eee;
 	font-size: 30px;
 	cursor: pointer;
 }
-.bell:hover {
-	/*background-color: #009975;*/
-	/*border-color: #009975;*/
-	/*border: 1px solid #009975;*/
-
+.bell:hover {	
 	color: #fff;
 }
 .add {
@@ -104,6 +99,12 @@ html,body {
 	/*background-color: #009975;*/
 	/*border-color: #009975;*/
 	color: #fff;
+}
+.user-img {
+	border-radius: 50%;	
+	height: 30px;
+	margin-left: 1.7rem;
+	cursor: pointer;
 }
 .dashboard {
 	display: grid;
@@ -146,12 +147,6 @@ html,body {
 	padding: .5rem;
 	position: sticky;
 	top: 155px;
-}
-.user-img {
-	border-radius: 50%;	
-	height: 30px;
-	margin-left: 1rem;
-	cursor: pointer;
 }
 .user-details-img-div {
 	grid-row-start: 1;
