@@ -28,12 +28,38 @@
                 </form>
             </li>
             <li class="icons">
-                <i class="material-icons bell">notifications_none</i>
+                <div class="notifications" onclick="notifications()">
+                    <i class="material-icons bell">notifications_none</i>
+                    <div class="notif-content">
+                        <span><a class="notif-item" href="">Item 5</a></span>
+                        <span><a class="notif-item" href="">Item 6</a></span>
+                        <span><a class="notif-item" href="">Item 7</a></span>
+                        <span><a class="notif-item" href="">Item 8</a></span>
+                    </div>
+                </div>
                 <i class="material-icons add">playlist_add</i>
-                <img class="user-img" src="images/user.jpg">
+                <!-- <div class="user-img"> -->
+                <div class="user-img-div">
+                    <div class="dropdown" onclick="userDetails()">
+                        <img class="user-img" src="images/user.jpg">
+                        <i class="material-icons caret-down">arrow_drop_down</i>
+                        <div class="dropdown-content">
+                            <span><a class="settings-item" href="">Item 1</a></span>
+                            <span><a class="settings-item" href="">Item 2</a></span>
+                            <span><a class="settings-item" href="">Item 3</a></span>
+                            <span><a class="settings-item" href="">Item 4</a></span>
+                        </div>
+                    </div>
+                </div>
+                    <!-- <ul class="user-content"> -->
+                        <!-- <li>Item1</li>
+                        <li>Item2</li>
+                        <li>Item3</li>
+                    </ul>
+                </div>                 -->
             </li>
         </ul>
-    </nav><br>
+    </nav><br><br>
     <section class="dashboard column container">
         <div class="user-details-div">
             <div class="c-align user-details-img-div">
@@ -47,13 +73,17 @@
             </div>
         </div>
         <div class="user-feed">
-            <div class="ask-ques">Ask any question...</div><hr>
+            <div class="ask-ques">Ask any question...<br>
+                <p>firstline</p><br><p>firstline</p><br><p>firstline</p><br><p>firstline</p><br><p>firstline</p><br>
+                p>firstline</p><br>
+                <p>firstline</p><br><p>firstline</p><br><p>firstline</p><br><p>firstline</p><br><p>firstline</p><br><p>firstline</p><br><p>firstline</p><br><p>firstline</p><br><p>firstline</p><br><p>firstline</p><br><p>firstline</p><br><p>firstline</p><br><p>firstline</p><br><p>firstline</p><br><p>firstline</p><br><p>firstline</p><br><p>firstline</p><br><p>firstline</p><br><p>firstline</p><br><p>firstline</p><br><p>firstline</p><br><p>firstline</p><br><p>firstline</p><br><p>firstline</p>
+            </div>        
+            <hr>
             <div class="feed"></div>
         </div>
-        <div class="user-score">
-            
-        </div>
+        <div class="user-score"></div>
     </section>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script>
         var typed = new Typed('input[placeholder]', {
             strings: ["Make a search ..","What is python code to add two numbers?", "Code to swap two numbers without using the third?","JAVA code to find the largest number in a large array?","How to ...","Code for ...","python code for ..."],
@@ -63,5 +93,50 @@
             stringsElement: null,
             smartBackspace: true
         });
+        // $(".user-img-div").click(function() {
+        //     $(".dropdown-content").toggleClass("dropdown-content-click");
+        // });
+        function userDetails() {
+            $(".dropdown-content").toggleClass("dropdown-content-click");
+        }
+        function notifications() {
+            console.log("notifications clicked");
+            $(".notif-content").toggleClass("notif-clicked");
+        }
+        window.onclick = function(event) {
+          // if ((!event.target.matches('.caret-down'))&&(!event.target.matches('.user-img'))) {
+            if ((!event.target.matches('.caret-down'))&&(!event.target.matches('.user-img'))&&(!event.target.matches('.dropdown'))) {                
+                var dropdowns = document.getElementsByClassName("dropdown-content");
+                var i;
+                for (i = 0; i < dropdowns.length; i++) {
+                    var openDropdown = dropdowns[i];
+                    if (openDropdown.classList.contains('dropdown-content-click')) {
+                        openDropdown.classList.remove('dropdown-content-click');
+                    }
+                }
+            }
+            else if ((!event.target.matches('.notifications'))&&(!event.target.matches('.bell'))) {
+                var notifdd = document.getElementsByClassName("notif-content");
+                var i;
+                for(i=0;i<notifdd.length;i++) {
+                    var opendd=notifdd[i];
+                    if(opendd.classList.contains('notif-clicked')) {
+                        opendd.classList.remove('notif-clicked');
+                    }
+                }
+            }
+        }
+        // window.onclick = function(event) {
+        //     if ((!event.target.matches('.notifications'))&&(!event.target.matches('.bell'))) {
+        //         var notifdd = document.getElementsByClassName("notif-content");
+        //         var i;
+        //         for(i=0;i<notifdd.length;i++) {
+        //             var opendd=notifdd[i];
+        //             if(opendd.classList.contains('notif-clicked')) {
+        //                 opendd.classList.remove('notif-clicked');
+        //             }
+        //         }
+        //     }
+        // }
     </script>
 </body>

@@ -3,9 +3,10 @@ html,body {
 	background-color: #e0ebeb;
 	font-family: 'Roboto', sans-serif;
 	color: #555;
+	width: 100%;
 }
 .navbar {
-	width: 100%;
+	width: 99%;
 	background-color: #00B389;
 	margin: 0px;
 	padding: .2rem;
@@ -17,15 +18,15 @@ html,body {
 	text-align: center;
 }
 .container {
-	width: 80%;
+	width: 98%;
 	margin: 0 auto;
 	display: flex;
 	justify-content: center;	
 }
 .column {
 	display: grid;
-	grid-template-columns: 20% 10% 10% 20% 20% 20%;
-	grid-column-gap: 1.5rem;
+	grid-template-columns: 22% 2% 52% 2% 22%;
+	/*grid-column-gap: 1.5rem;*/
 }
 .navbar-menu {	
 	list-style: none;
@@ -99,36 +100,129 @@ html,body {
 	/*border-color: #009975;*/
 	color: #fff;
 }
+.user-img-div {
+	/*display: flex;*/
+	cursor: pointer;
+}
 .user-img {
-	border-radius: 50%;	
+	border-radius: 50%;
 	height: 30px;
 	margin-left: 1.7rem;
 	cursor: pointer;
 }
+.caret-down {
+	color: #fff;
+}
+.dropdown {
+	position: relative;
+	display: inline-block;
+}
+.notifications {
+	position: relative;
+	display: inline-block;
+}
+.notif-content {
+	display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 120px;
+    overflow: auto;
+    right: 0;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+.notif-content span{
+	color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+.notif-clicked {
+	display: block;
+}
+.notif-item {
+	text-decoration: none;
+	color: #555;
+}
+.settings-item {
+	text-decoration: none;
+	color: #555;	
+}
+.dropdown-content {
+	display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 120px;
+    overflow: auto;
+    right: 0;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+.dropdown-content-click {
+	display: block;
+}
+.dropdown-content .dropdown-content:after {
+    margin-left: -20px;
+    position: absolute;
+    left: 50%;
+    top: -8px;
+    width: 0;
+    height: 0;
+    content: '';
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    border-bottom: 20px solid #000;
+}
+.dropdown-content span{
+	color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+.user-img-div:hover {
+	display:block;
+}
+.user-content {
+	list-style: none;
+	padding: 0px;
+	display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    padding: 12px 16px;
+    z-index: 1;
+}
+.user-content:hover {
+	display: block;
+}
 .dashboard {
-	display: grid;
-	grid-template-rows: 40px 20px;
+	/*display: flex;*/
+	/*flex-wrap: wrap;*/
 }
 .user-details-div {
 	grid-column-start: 1;
 	grid-column-end: 2;
-	grid-row-start: 1;
+	/*grid-row-start: 1;*/
 	/*grid-row-end: 2;*/
 	text-align: center;
 	position: sticky;
-	top: 95px;
+	top: 112px;
+	border: 1px solid #888;
+	/*padding: .2rem;*/
+	height: 368px;
+	box-shadow: 0 0 0 1px rgba(0,0,0,.15);
 }
-
 .user-details {	
-	background-color: #fff;	
-	grid-row-start: 3;
+	background-color: #fff;
+	/*grid-row-start: 3;*/
 	/*margin-top: 60px;*/
 	padding: .5rem;
 }
 .user-feed {
-	grid-column-start: 2;
-	grid-column-end: 6;
-	grid-row-start: 3;
+	grid-column-start: 3;
+	grid-column-end: 4;
+	/*grid-row-start: 3;*/
 }
 .ask-ques {
 	padding: .5rem;
@@ -139,23 +233,26 @@ html,body {
 	padding: .5rem;
 }
 .user-score {
-	grid-column-start: 6;
-	grid-column-end: 7;
-	grid-row-start: 1;
+	grid-column-start: 5;
+	grid-column-end: 6;
+	/*grid-row-start: 1;*/
 	background-color: #fff;`
 	padding: .5rem;
 	position: sticky;
-	top: 155px;
+	top: 112px;
+	height: 20px;
 }
 .user-details-img-div {
-	grid-row-start: 1;
-	grid-row-end: 3;
+	/*grid-row-start: 1;*/
+	/*grid-row-end: 3;*/
 	height: 60px;
+	background-image: url('images/profilebg1.jpg');
+	padding: .3rem;
 }
 .user-details-img {
 	border-radius: 50%;
-	height: 90px;
-	border: 8px solid #e0ebeb;
+	height: 80px;
+	border: 1px solid #fff;
 }
 hr {
 	border-top: 1px solid rgb(0,0,0,0.1);
@@ -204,6 +301,8 @@ hr {
 	}
 	.user-img {
 		margin-left: .8rem;
+	}
+	.user-imge {
 		height: 22px;
 	}
 	.bell {
