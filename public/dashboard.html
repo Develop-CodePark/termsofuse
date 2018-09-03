@@ -74,12 +74,13 @@
         </div>
         <div class="user-feed">
             <div class="ask-ques">Ask any question...<br>
-                <p>firstline</p><br><p>firstline</p><br><p>firstline</p><br><p>firstline</p><br><p>firstline</p><br>
-                p>firstline</p><br>
-                <p>firstline</p><br><p>firstline</p><br><p>firstline</p><br><p>firstline</p><br><p>firstline</p><br><p>firstline</p><br><p>firstline</p><br><p>firstline</p><br><p>firstline</p><br><p>firstline</p><br><p>firstline</p><br><p>firstline</p><br><p>firstline</p><br><p>firstline</p><br><p>firstline</p><br><p>firstline</p><br><p>firstline</p><br><p>firstline</p><br><p>firstline</p><br><p>firstline</p><br><p>firstline</p><br><p>firstline</p><br><p>firstline</p><br><p>firstline</p>
+                <p>firstline</p><br>
             </div>        
             <hr>
-            <div class="feed"></div>
+            <div class="feed">
+                <p>firstline</p><br>
+                <p>firstline</p><br><p>firstline</p><br><p>firstline</p><br><p>firstline</p><br><p>firstline</p><br><p>firstline</p><br><p>firstline</p><br><p>firstline</p><br><p>firstline</p><br><p>firstline</p><br><p>firstline</p><br><p>firstline</p><br><p>firstline</p><br><p>firstline</p><br><p>firstline</p><br><p>firstline</p><br><p>firstline</p><br><p>firstline</p><br><p>firstline</p><br><p>firstline</p><br><p>firstline</p><br><p>firstline</p><br><p>firstline</p><br><p>firstline</p>
+            </div><br><br><br>
         </div>
         <div class="user-score"></div>
     </section>
@@ -115,7 +116,7 @@
                     }
                 }
             }
-            else if ((!event.target.matches('.notifications'))&&(!event.target.matches('.bell'))) {
+            if ((!event.target.matches('.notifications'))&&(!event.target.matches('.bell'))) {
                 var notifdd = document.getElementsByClassName("notif-content");
                 var i;
                 for(i=0;i<notifdd.length;i++) {

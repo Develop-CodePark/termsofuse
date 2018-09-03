@@ -112,6 +112,7 @@ html,body {
 }
 .caret-down {
 	color: #fff;
+	margin-left: -5px;
 }
 .dropdown {
 	position: relative;
@@ -182,7 +183,7 @@ html,body {
 .user-img-div:hover {
 	display:block;
 }
-.user-content {
+/*.user-content {
 	list-style: none;
 	padding: 0px;
 	display: none;
@@ -195,7 +196,7 @@ html,body {
 }
 .user-content:hover {
 	display: block;
-}
+}*/
 .dashboard {
 	/*display: flex;*/
 	/*flex-wrap: wrap;*/
@@ -208,10 +209,11 @@ html,body {
 	text-align: center;
 	position: sticky;
 	top: 112px;
-	border: 1px solid #888;
 	/*padding: .2rem;*/
-	height: 368px;
-	box-shadow: 0 0 0 1px rgba(0,0,0,.15);
+	height: 315px;
+	box-shadow: 0 1px 1px rgba(0,0,0,.15);
+	border: .1px solid #999;
+	/*border-radius: 4px;*/
 }
 .user-details {	
 	background-color: #fff;
@@ -222,15 +224,20 @@ html,body {
 .user-feed {
 	grid-column-start: 3;
 	grid-column-end: 4;
+
 	/*grid-row-start: 3;*/
 }
 .ask-ques {
 	padding: .5rem;
 	background-color: #fff;
+	box-shadow: 0 1px 1px rgba(0,0,0,.15);
+	border: .1px solid #bbb;
 }
 .feed {
 	background-color: #fff;
 	padding: .5rem;
+	box-shadow: 0 1px 1px rgba(0,0,0,.15);
+	border: .1px solid #bbb;
 }
 .user-score {
 	grid-column-start: 5;
@@ -241,23 +248,25 @@ html,body {
 	position: sticky;
 	top: 112px;
 	height: 20px;
+	box-shadow: 0 1px 1px rgba(0,0,0,.15);
+	border: .01px solid #bbb;
 }
 .user-details-img-div {
 	/*grid-row-start: 1;*/
 	/*grid-row-end: 3;*/
-	height: 60px;
+	height: 40px;
 	background-image: url('images/profilebg1.jpg');
 	padding: .3rem;
 }
 .user-details-img {
 	border-radius: 50%;
-	height: 80px;
+	height: 70px;
 	border: 1px solid #fff;
 }
 hr {
 	border-top: 1px solid rgb(0,0,0,0.1);
-	margin-top: 1.5rem;
-	margin-bottom: 1.5rem;
+	margin-top: 1rem;
+	margin-bottom: 1rem;
 }
 @media only screen and (max-width: 1000px) {
 	.dashboard {
@@ -283,9 +292,16 @@ hr {
 	}
 }
 @media only screen and (max-width: 900px) {
+	body {
+		font-size: 14px;
+	}
 	.search-li {
 		grid-column-start: 3;
 		grid-column-end: 8;
+	}
+	.search-field {
+		font-size: 14px;
+		padding: .2rem;
 	}
 }
 @media only screen and (max-width: 600px) {
@@ -301,8 +317,6 @@ hr {
 	}
 	.user-img {
 		margin-left: .8rem;
-	}
-	.user-imge {
 		height: 22px;
 	}
 	.bell {
@@ -310,5 +324,8 @@ hr {
 	}
 	.nav-brand {
 		height: 22px;
+	}
+	.caret-down {
+		display: none;
 	}
 }
