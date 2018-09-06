@@ -1,12 +1,12 @@
 html,body {
 	margin: 0px;
 	background-color: #e0ebeb;
+	/*background-color: rgb(0,0,0,0.03);*/
 	font-family: 'Roboto', sans-serif;
 	color: #555;
 	width: 100%;
 }
 .navbar {
-	width: 99%;
 	background-color: #00B389;
 	margin: 0px;
 	padding: .2rem;
@@ -87,7 +87,8 @@ html,body {
 	cursor: pointer;
 }
 .bell:hover {	
-	color: #fff;
+	color: #00B389;
+	background-color: #eee;
 }
 .add {
 	margin-left: 1rem;
@@ -121,6 +122,10 @@ html,body {
 .notifications {
 	position: relative;
 	display: inline-block;
+	background-color: #00B389;
+}
+.notifications {
+	background-color: #00B389;
 }
 .notif-content {
 	display: none;
@@ -222,22 +227,101 @@ html,body {
 	padding: .5rem;
 }
 .user-feed {
+	font-family: Georgia,Times,"Times New Roman","Hiragino Kaku Gothic Pro","Meiryo",serif;
 	grid-column-start: 3;
 	grid-column-end: 4;
 
 	/*grid-row-start: 3;*/
 }
 .ask-ques {
-	padding: .5rem;
+	color: #bbb;
+	padding: .5rem;	
 	background-color: #fff;
 	box-shadow: 0 1px 1px rgba(0,0,0,.15);
 	border: .1px solid #bbb;
+	overflow: auto;
+}
+.ask-ques-user {
+	display: flex;
+}
+.ask-ques-user-img {
+	height: 26px;
+	border-radius: 50%;
+	margin-right: 5px;
+	border: 1px solid #eee;
+	cursor: pointer;
+}
+.ask-ques-username {
+	font-weight: normal;
+	margin-top: 5px;
+	cursor: pointer;
+}
+.ask-ques-text {
+	font-weight: 600;
+	cursor: pointer;
+	font-size: 18px;
+	margin-top: 0px;
+}
+.ask-ques-text:hover {
+	color: rgba(0, 179, 137, .9);
+}
+.ask-ques-username:hover {
+	text-decoration: underline;
+}
+.other-user-detail {
+	/*margin-top: 5px;*/
+	display: flex;
+	margin-bottom: 5px;
+	margin-right: 4px;
+	align-items: center;
+}
+.other-user-detail-img {
+	border-radius: 50%;
+	height: 40px;
+	margin-top: 0px;
+	margin-right: 5px;
+}
+.other-user-detail-bio {
+	color: #333;
 }
 .feed {
+	font-family: Georgia,Times,"Times New Roman","Hiragino Kaku Gothic Pro","Meiryo",serif;
 	background-color: #fff;
-	padding: .5rem;
+	padding: 1rem 1.5rem 1rem 1.5rem;
 	box-shadow: 0 1px 1px rgba(0,0,0,.15);
-	border: .1px solid #bbb;
+	border: 1px solid #ddd;
+	margin-top: -6px;
+	/*height: 150px;*/
+	overflow: auto;
+}
+.feed-detail {
+	color: #999;
+	/*font-size: 14px;*/
+	display: flex;
+}
+.feed-detail-category {
+	margin-right: 3px;
+	margin: 0px;
+
+}
+.feed-detail-tag {
+	margin: 0px;
+}
+.feed-ques {	
+	font-size: 18px;
+	font-weight: bold;
+	/*color: rgba(0,0,0,0.8);*/
+	color: #333;
+	cursor: pointer;
+	/*margin-top: 0px;*/
+}
+.feed-ques:hover {
+	text-decoration: underline;
+}
+.feed-content {
+	margin-top: 10px;
+	font-family: Georgia,Times,"Times New Roman","Hiragino Kaku Gothic Pro","Meiryo",serif;
+	/*font-size: 1px;*/
 }
 .user-score {
 	grid-column-start: 5;
@@ -316,11 +400,12 @@ hr {
 		font-size: 22px;
 	}
 	.user-img {
-		margin-left: .8rem;
+		margin-left: .6rem;
 		height: 22px;
 	}
 	.bell {
 		font-size: 22px;
+		margin-left: 2px;
 	}
 	.nav-brand {
 		height: 22px;
