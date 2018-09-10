@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html ng-app="codepark" ng-controller="dashboardController">
+
+<head>
+    <!-- <base href="/dashboard"> -->
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta name="keywords" content="CodePark,code,sharing,Coding,Codepark.in,Raj Chandra,startup">
+    <meta name="author" content="CodePark">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Answer</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" type="text/css" href="aditya.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <script src="vendors/typed.min.js"></script>
+</head>
+<body>
+    <nav class="navbar">
+        <ul class="navbar-menu">
+            <li class="nav-brand">
+                <img src="images/logo_codepark.jpg" style="height: 30px;">CodePark
+            </li>
+            <!-- <li class="search-li">
+                <form class="search-form">
+                    <input type="text" class="search-field" placeholder="">
+                    <button class="search-submit"><i class="material-icons search-icon">search</i></button>
+                </form>
+            </li> -->
+            <li class="icons">
+                <div class="notifications" onclick="notifications()">
+                    <i class="material-icons bell">notifications_none</i>
+                    <div class="notif-content">
+                        <span><a class="notif-item" href="">Item 5</a></span>
+                        <span><a class="notif-item" href="">Item 6</a></span>
+                        <span><a class="notif-item" href="">Item 7</a></span>
+                        <span><a class="notif-item" href="">Item 8</a></span>
+                    </div>
+                </div>
+                <i class="material-icons add">playlist_add</i>
+                <!-- <div class="user-img"> -->
+                <div class="user-img-div">
+                    <div class="dropdown" onclick="userDetails()">
+                        <img class="user-img" src="images/user.jpg">
+                        <i class="material-icons caret-down">arrow_drop_down</i>
+                        <div class="dropdown-content">
+                            <span><a class="settings-item" href="">Item 1</a></span>
+                            <span><a class="settings-item" href="">Item 2</a></span>
+                            <span><a class="settings-item" href="">Item 3</a></span>
+                            <span><a class="settings-item" href="">Item 4</a></span>
+                        </div>
+                    </div>
+                </div>
+                    <!-- <ul class="user-content"> -->
+                        <!-- <li>Item1</li>
+                        <li>Item2</li>
+                        <li>Item3</li>
+                    </ul>
+                </div>                 -->
+            </li>
+        </ul>
+    </nav><br><br>
+    <section class="dashboard answer-column container">
+        <!-- <div class="user-details-div">
+            <div class="c-align user-details-img-div">
+                <img src="images/user.jpg" class="user-details-img">
+            </div>
+            <div class="user-details">
+                <br><br><br><p>User Name</p>
+                <p>About</p><hr>
+                <p>Interests</p><hr>
+                <p>Points</p>
+            </div>
+        </div> -->
+        <!-- <div class="user-feed"> -->
+            <!-- <div class="ask-ques">
+                <div class="ask-ques-user">
+                    <img class="ask-ques-user-img" src="images/user.jpg">
+                    <p class="ask-ques-username">{UserName}</p>
+                </div>
+                <p class="ask-ques-text">Ask your question...</p>
+            </div> 
+            <hr> -->
+            <div class="answer-feed">
+	            <div class="answer-feed-question">
+	            	<img src="images/user.jpg" class="answer-feed-img">
+	            	<p><a href="" class="anchor">Asker</a> asked this</p>
+	            </div>
+	            <div class="topic">
+	            	<h3 class="question-title">Dynamic Array</h3>
+	            	<a href="https://hackerrank.com/challenges/dynamic-array/problem" class="anchor">https://hackerrank.com/challenges/dynamic-array/problem</a>
+	            </div>
+	            <div class="tags">
+	            	<i class="material-icons">local_offer</i>
+	            	<a href="" class="anchor tags-item">hackerrank</a>
+	            	<a href="" class="anchor tags-item">array</a>
+	            	<a href="" class="anchor tags-item">dynamic</a>
+	            </div><hr class="hr-ninetyfive">
+        	</div>
+        	<div class="question-detail">
+        		<img src="images/user.jpg" class="asker-detail">
+        		<p><a href="" class="anchor">Asker</a> asked this</p>
+        		<p>Posted on Sep 10, 2018</p><hr class="hr-asker-detail-1">
+        		<p class="question-detail-answeredby">Answered by XYZ
+        			<img src="images/user.jpg" class="question-detail-answeredby-img">
+        		</p>
+        		<p class="question-detail-noview">X view</p><hr class="hr-asker-detail-2">
+        	</div>
+        <!-- </div> -->
+        <div class="user-score"></div>
+    </section>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        var typed = new Typed('input[placeholder]', {
+            strings: ["Make a search ..","What is python code to add two numbers?", "Code to swap two numbers without using the third?","JAVA code to find the largest number in a large array?","How to ...","Code for ...","python code for ..."],
+            backSpeed : 10,
+            typeSpeed : 40,
+            loop : true,
+            stringsElement: null,
+            smartBackspace: true
+        });
+        // $(".user-img-div").click(function() {
+        //     $(".dropdown-content").toggleClass("dropdown-content-click");
+        // });
+        function userDetails() {
+            $(".dropdown-content").toggleClass("dropdown-content-click");
+        }
+        function notifications() {
+            console.log("notifications clicked");
+            $(".notif-content").toggleClass("notif-clicked");
+        }
+        window.onclick = function(event) {
+          // if ((!event.target.matches('.caret-down'))&&(!event.target.matches('.user-img'))) {
+            if ((!event.target.matches('.caret-down'))&&(!event.target.matches('.user-img'))&&(!event.target.matches('.dropdown'))) {                
+                var dropdowns = document.getElementsByClassName("dropdown-content");
+                var i;
+                for (i = 0; i < dropdowns.length; i++) {
+                    var openDropdown = dropdowns[i];
+                    if (openDropdown.classList.contains('dropdown-content-click')) {
+                        openDropdown.classList.remove('dropdown-content-click');
+                    }
+                }
+            }
+            if ((!event.target.matches('.notifications'))&&(!event.target.matches('.bell'))) {
+                var notifdd = document.getElementsByClassName("notif-content");
+                var i;
+                for(i=0;i<notifdd.length;i++) {
+                    var opendd=notifdd[i];
+                    if(opendd.classList.contains('notif-clicked')) {
+                        opendd.classList.remove('notif-clicked');
+                    }
+                }
+            }
+        }
+        // window.onclick = function(event) {
+        //     if ((!event.target.matches('.notifications'))&&(!event.target.matches('.bell'))) {
+        //         var notifdd = document.getElementsByClassName("notif-content");
+        //         var i;
+        //         for(i=0;i<notifdd.length;i++) {
+        //             var opendd=notifdd[i];
+        //             if(opendd.classList.contains('notif-clicked')) {
+        //                 opendd.classList.remove('notif-clicked');
+        //             }
+        //         }
+        //     }
+        // }
+    </script>
+</body>
