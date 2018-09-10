@@ -1,0 +1,79 @@
+<nav class="row nav-top sticky-top" >
+    <!-- ng-init="getQuestionViewDetails()" -->
+    <div class="col-3 pt-2 pd-3 nav-codepark-logo">
+        <a href="/dashboard"><img class="codepark-logo codepark-logo-md float-right" src="/images/logo_codepark.jpg" alt="CodePark Logo"></a>
+    </div>
+    <div class="col-6 pt-3 nav-text">
+        CodePark
+    </div>
+    <div class="col-3 pt-2 nav-user-image">
+        <!-- profile image -->
+        <div class="dropdown-container">
+            <div class="#" title="{{currUser.fullName}}">
+                <img src="{{questionData.askedBy_profileImage}}" alt="{{questionData.askedBy_name.firstName}}" class="img-fluid rounded-circle avatar-small user-avatar">
+            </div>
+            <!-- Dropdown menu -->
+            <ul class="dropdown-animated">
+                <li><a href="#">Html</a></li>
+                <li><a href="#">CSS</a></li>
+                <li>JS</li>
+                <li>Bootstrap</li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div class="container-fluid">
+    <div class="row">
+        <!--Add a recaptcha-->
+        <div class="col-lg-12">
+            <div class="card p-0 m-3 text-center">
+                <div class="card-header">
+                    Alert
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">Let's build a community !</h5>
+                    <p class="card-text">We are making sure that the content in our website is ligitimate and not added by some robot.</p><br>
+                    <div class="g-recaptcha" area-label="g-captcha" data-sitekey="6LdWZVoUAAAAAP6KbKjnhLe5bBJhzhbZvSH0GETd"></div>
+                </div>
+                <div class="card-footer text-muted">
+                    Your question can help someone.
+                </div>
+            </div>
+        </div>
+        <!--Ask a question-->
+        <div class="col-lg-8 col-sm-12 pt-3 pb-3 text-blue">
+            <form class="form" ng-submit="addQuestion()">
+                <div class="container p-3">
+                    <label for="questionTitle" class="text-small" > Question Title </label>
+                    <textarea name="questionTitle" class="col-lg-12 form-control questionTitle" id="questionTitle" ng-model="newquestion.questionTitle"></textarea>
+                </div>
+                <hr class="hr-full-dark">
+                <div class="container-fluid">
+                    <label for="subQuestion" class="text-small"> Your question details goes below, alternatively, you can paste the link of the question. </label>
+                    <textarea name="subquestion" class="col-lg-12 form-control subQuestion" id="subQuestion" ng-model="newquestion.subQuestion"></textarea>
+                </div>
+                <hr class="hr-full-dark">
+                <div class="container">
+                    <label for="tagContent" class="text-small"> Add tags that are closly reated to your question </label>
+                    <textarea name="tagContent" class="col-lg-12 form-control tagContent" ng-model="newquestion.tag"></textarea>
+                </div>
+                <hr class="hr-full-dark">
+                <div class="container">
+                    <div class="testCases">
+                        <label for="sampleInput" class="text-small"> Sample Input </label>
+                        <textarea name="sampleInput" class="col-lg-12 form-control sampleInput" ng-model="newquestion.sampleInput"></textarea>
+
+                        <label for="sampleOutput" class="text-small"> Sample Output </label>
+                        <textarea name="sampleOutput" class="col-lg-12 form-control sampleOutput" ng-model="newquestion.sampleOutput"></textarea>
+                    </div>
+                </div>
+                <br>
+                <button class="btn btn-codepark float-right" type="submit"> Add this question </button>
+            </form>
+        </div>
+        <!--Guidelines-->
+        <div class="col-lg-2 col-sm-12">
+
+        </div>
+    </div>
+</div>

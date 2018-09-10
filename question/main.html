@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html ng-app="codepark" ng-init="currentUser()">
+<head>
+    <base href="/content">
+    <meta charset="UTF-8">
+    <meta name="description" content="CodePark is a community of Programmers who are willing to learn and grow.We at CodePark aim to provide all the means to help every Programmer grow.At CodePark we learn to Code and help others code, so that we as a community can grow.">
+    <meta name="keywords" content="CodePark,code,sharing,Coding,Codepark.in,Raj Chandra,startup">
+    <meta name="author" content="CodePark">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> </title>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+                new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-MRXBWHM');</script>
+    <!-- End Google Tag Manager -->
+
+    <!--Bing Search-->
+    <meta name="msvalidate.01" content="E46B65D6221D1B64BEAB96010BBF479F" />
+
+    <script type="text/javascript" src="https://cdn.ywxi.net/js/1.js" async></script>
+
+    <link rel="icon" href="/images/favicon.ico" type="image/ico" sizes="16x16">
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+
+    <!--Font awesome-->
+    <script src="/vendors/fontawesome/js/all.js" ></script>
+
+    <!--Bootstrap 4-->
+    <link rel="stylesheet" href="/vendors/bootstrap/css/bootstrap.min.css">
+
+    <!--Jquery and Bootstrap scripts-->
+    <script src="/vendors/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="/vendors/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="https://cdn.ywxi.net/js/1.js" async></script>
+
+    <!--Custom CSS-->
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <link rel="stylesheet" href="/stylesheets/question.css">
+
+    <!--Angular Goes Here-->
+    <script src="/vendors/angular/angular.min.js"></script>
+    <script src="/vendors/angular/angular-route.min.js"></script>
+    <script src="/vendors/angular/angular-cookies.min.js"></script>
+    <script language="javascript" type="text/javascript" src="/javascripts/controllers/question.js"></script>
+    <script language="javascript" type="text/javascript" src="/javascripts/assets/question.js"></script>
+
+    <!-- Ace editor -->
+    <script src="/vendors/src-noconflict/ace.js" type="text/javascript" charset="utf-8"></script>
+
+    <!-- McCafe secured -->
+    <script type="text/javascript" src="https://cdn.ywxi.net/js/1.js" async></script>
+
+    <!--GooGle Analytics-->
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date(); a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+        ga('create', 'UA-99147431-6', 'auto');
+        ga('send', 'pageview');
+    </script>
+    <!--Smartlook-->
+    <script type="text/javascript">
+        window.smartlook || (function (d) {
+            var o = smartlook = function () { o.api.push(arguments) }, h = d.getElementsByTagName('head')[0];
+            var c = d.createElement('script'); o.api = new Array(); c.async = true; c.type = 'text/javascript';
+            c.charset = 'utf-8'; c.src = 'https://rec.smartlook.com/recorder.js'; h.appendChild(c);
+        })(document);
+        smartlook('init', '679090917d438027e7d56aa219c00bce868ea505');
+    </script>
+</head>
+
+<body class="container-fluid" ng-cloak>
+<div ng-view></div>
+</body>
+
+</html>

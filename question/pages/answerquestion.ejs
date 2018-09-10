@@ -1,0 +1,88 @@
+
+<nav class="row nav-top sticky-top" ng-init="getQuestionViewDetails()">
+    <div class="col-3 pt-2 pd-3 nav-codepark-logo">
+        <a href="/dashboard"><img class="codepark-logo codepark-logo-md float-right" src="/images/logo_codepark.jpg" alt="CodePark Logo"></a>
+    </div>
+    <div class="col-6 pt-3 nav-text">
+        CodePark
+    </div>
+    <div class="col-3 pt-2 nav-user-image">
+        <!-- profile image -->
+        <div class="dropdown-container">
+            <div class="#" title="{{currUser.fullName}}">
+                <img src="{{questionData.askedBy_profileImage}}" alt="{{questionData.askedBy_name.firstName}}" class="img-fluid rounded-circle avatar-small user-avatar">
+            </div>
+            <!-- Dropdown menu -->
+            <ul class="dropdown-animated">
+                <li><a href="#">Html</a></li>
+                <li><a href="#">CSS</a></li>
+                <li>JS</li>
+                <li>Bootstrap</li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div class="container-fluid editor-container" ng-init="getQuestionViewDetails()">
+    <div class="row">
+        <div class="col-lg-12">
+            <!--question data-->
+            <div class="jumbotron jumbotron-fluid">
+                <div class="container">
+                    <h1 class="display-4">
+                        <div class="question-title" id="main-question">
+                            {{questionData.questionTitle}}
+                        </div>
+                    </h1>
+                    <p class="lead">
+                        <div class="sub-question" target="_blank">
+                            {{questionData.subQuestion}}
+                        </div>
+                    </p>
+                </div>
+            </div>
+            <div class="jumboton">
+            </div>
+            <!--Answer details-->
+            <!--languages-->
+            <div class="form-inline editor-top">
+                <select class="form-control" name="mode" id="mode">
+                    <option id="1" value="c_cpp">C</option>
+                    <option id="2" value="c_cpp">C++</option>
+                    <option id="3" value="java">JAVA</option>
+                    <option id="5" value="python">Python 2.7</option>
+                    <option id="30" value="python">Python 3</option>
+                </select>
+                <select class="form-control" id="theme">
+                    <option value="monokai">Monokai</option>
+                    <option value="pastel_on_dark">Pastel On Dark</option>
+                    <option value="solarized_dark">Solarized dark</option>
+                    <option value="solarized_light">Solarized light</option>
+                </select>
+            </div>
+            <!--editor-->
+            <div id="editor" ng-keyup="autoSave()"></div>
+            <!--submit btn-->
+            <button type="submit" ng-click="submitAnswer()" class="btn btn-codepark submit-btn">Submit</button>
+            <!--message container-->
+            <div class="alert">{{response}}</div>
+            <script >
+                var editor = ace.edit("editor");
+                editor.setTheme("ace/theme/monokai");
+                editor.getSession().setMode("ace/mode/c_cpp");
+            </script>
+        </div>
+    </div>
+</div>
+<script>
+    $('#mode').change(function(){
+        var changemode="ace/mode/";
+        changemode+=$('#mode').find("option:selected").attr('value');
+        editor.getSession().setMode(changemode);
+//        editor.setValue('');
+    });
+    $('#theme').change(function(){
+        var changetheme="ace/theme/";
+        changetheme+=$('#theme').find("option:selected").attr('value');
+        editor.setTheme(changetheme);
+    });
+</script>

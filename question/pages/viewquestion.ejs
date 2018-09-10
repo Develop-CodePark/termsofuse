@@ -1,0 +1,289 @@
+<!-- Modal -->
+<div class="modal fade" id="message-dailog" tabindex="-1" role="dialog" aria-labelledby="message-title" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="message-title">Message</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="close-modal-btn">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div id="message-detail"></div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-codepark" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+<nav class="row nav-top sticky-top" ng-init="getQuestionViewDetails()">
+    <div class="pt-2 pd-3 nav-codepark-logo">
+        <a href="/dashboard"><img class="codepark-logo codepark-logo-md float-right" src="/images/logo_codepark.jpg" alt="CodePark Logo"></a>
+    </div>
+    <div class="pt-3 nav-text">
+        CodePark
+    </div>
+    <div class="pt-2 nav-user-image">
+        <div class="dropdown">
+            <!-- profile image -->
+            <span class="user-avatar" title="{{currUser.fullName}}">
+                <img src="{{questionData.askedBy_profileImage}}" alt="{{questionData.askedBy_name.firstName}}" class="img-fluid rounded-circle avatar-small">
+            </span>
+            <!-- Dropdown menu -->
+            <div class="dropdown-content">
+                <span>
+                    <li><a href="/u/{{currUser.uid}}/{{currUser.name.fullName}}">Profile</a></li>
+                    <li><a href="/settings">Settings</a></li>
+                    <li>Friends</li>
+                    <li>Kiss</li>
+                </span>
+                <hr class="hr-white">
+                <div class="dropdown-footer text-vsmall">
+                    <span>
+                        <a href="/help">Help</a>
+                    </span>
+                    <span>
+                        <a href="/privacy">Privacy Policy</a>
+                    </span>
+                    <span>
+                        <a href="/terms">Terms of Service</a>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+<div class="container-fluid">
+    <div class="row view-page">
+        <!--content details-->
+        <div class="col-lg-2"></div>
+        <div class="view-area col-lg-7 col-md-8 col-sm-8">
+            <div class="content-overflow content-branch">
+                <!--Card view for each content-->
+                <div class="card content-leaf">
+                    <div class="about-the-author">
+                        <span class="avatar-container">
+                            <img src="{{questionData.askedBy_profileImage}}" alt="{{questionData.askedBy_name.firstName}}" class="img-fluid rounded-circle avatar-small">
+                        </span>
+                        <a href="/u/{{questionData.askedBy_name.fullName | lowercase}}/{{questionData.askedBy_uid}}">
+                            <span class="author-name font-weight-normal">
+                                <span ng-if="!userData.user_asked">{{questionData.askedBy_name.fullName}}</span><span ng-if="userData.user_asked">You</span>
+                            </span>
+                        </a>
+                        <span>asked this.</span>
+                        <span ng-if="content.answeredBy.about">,</span>
+                        <span class="author-headline font-weight-light">{{questionData.answeredBy.about}}</span>
+                    </div>
+                    <div class="container question-container" >
+                        <!--title-->
+                        <h4 class="question-title text-small" name="question-title" id="main-question">{{questionData.questionTitle}}</h4>
+                        <!--main question-->
+                        <div class="sub-question col-12 font-weight-light text-vsmall ">
+                            {{questionData.subQuestion}}
+                        </div>
+                        <div class="minor-detail-container">
+                            <!--tags-->
+                            <div class="float-left">
+                                <span><i class="fas fa-tag"></i>&nbsp;</span>
+                                <a href="/content/#/search?tag={{tag}}" class="badge badge-light" ng-repeat="tag in questionData.tag">{{tag}} &nbsp;</a>
+                            </div>
+                            <!--following this question-->
+                            <div class="float-right">
+                                <span>
+                                    <button class="badge badge-pill clearfix badge-primary follow-btn" ng-click="followQuestion(questionData.uid)">
+                                            <span ng-if="userData.user_follows_question">
+                                                Following
+                                            </span>
+                                            <span ng-if="!userData.user_follows_question">
+                                                Follow
+                                            </span>
+                                            <span class="badge badge-light">
+                                                {{userData.question_followedBy}}
+                                            </span>
+                                    </button>
+                                </span>
+                            </div>
+
+                            <!--Delete this question-->
+                            <div class="float-left" ng-if="userData.user_asked">
+                                <span>
+                                    <button class="badge badge-pill badge-danger clearfix delete-btn" ng-click="deleteQuestion(questionData.uid)">Delete</button>
+                                </span>
+                            </div>
+                        </div>
+                        <br><hr>
+                    </div>
+
+                    <!--Answer-->
+                    <section class="answer-container" ng-if="questionData.answered" ng-repeat="content in answerData">
+                        <div class="about-the-author">
+                            <span class="avatar-container">
+                                <img src="{{content.answeredBy.profileImage}}" alt="codepark user" class="img-fluid rounded-circle avatar-small">
+                            </span>
+                            <a href="/u/{{content.answeredBy.name.fullName}}/{{content.answeredBy.uid}}">
+                                <span class="author-name font-weight-bold">{{content.answeredBy.name.fullName}}</span>
+                            </a>
+                            <span ng-if="content.answeredBy.about">,</span>
+                            <span class="author-headline font-weight-light">{{content.answeredBy.about}}</span>
+                        </div>
+                        <div class="ml-0">
+                            <!-- Featured answer -->
+                            <pre class="text-small" id="code">{{content.answer}}
+                                <!-- copy button -->
+                                <span id="copy_btn"><i class="fas fa-clone fa-1x"></i></span>
+                                <p class="pre-footer text-extra-small float-left base-bg text-white"> language : C++ | views : 17648 </p>
+                            </pre>
+
+                        </div>
+
+                        <!--
+                        React button container
+                        -->
+                        <div class="container">
+                            <div class="row reactBtn-container">
+                                <!-- upvotes -->
+                                <div class="col-3 react-btn" title="upvote" ng-click="react(content.uid,'upvote',$index)">
+                                    <span ng-class="{reacted : content.user_upvoted, notReacted : !content.user_upvoted, disabled : content.user_downvoted}"><i class="fas fa-chevron-up"></i>&nbsp; | &nbsp;{{content.upvotes}}</span>
+                                </div>
+                                <!-- downvotes -->
+                                <div class="col-3 react-btn" title="downvote" ng-click="react(content.uid,'downvote',$index)">
+                                    <span ng-class="{reacted : content.user_downvoted, notReacted : !content.user_downvoted, disabled : content.user_downvoted}"><i class="fas fa-chevron-down" ></i>&nbsp; | &nbsp;{{content.downvotes}}</span>
+                                </div>
+                                <!-- shout-out -->
+                                <div class="col-3 react-btn" title="shout-out" ng-click="react(content.uid,'shoutout',$index)">
+                                    <span ng-class="{reacted : content.user_shoutout, notReacted : !content.user_shoutout}"><i class="fas fa-volume-up"></i>&nbsp; | &nbsp;{{content.shoutout}}</span>
+                                </div>
+                                <!-- More -->
+                                <div class="col-3 float-right react-btn" title="more">
+                                    <span><i class="fas fa-ellipsis-v"></i></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!--
+                            Delete and edit options to the user
+                        -->
+                        <div class="row edit-options" ng-if="content.user_answered">
+                            <!--Edit button-->
+                            <div class="col-6 react-btn" hidden>
+                                <a href="/content/#/edit/{{content._id}}">
+                                    <span><i class="fas fa-info-circle"></i>&nbsp;Edit</span>
+                                </a>
+                            </div>
+                            <!--Delete button-->
+                            <div class="col-6 react-btn" ng-click="deleteAnswer(questionData.uid,content.uid)">
+                                <span><i class="fas fa-trash"></i>&nbsp;Delete</span>
+                            </div>
+                            <!--Comment button-->
+                            <div class="col-6 react-btn">
+                                <span><i class="fas fa-cloud"></i>&nbsp;Comment</span>
+                            </div>
+                        </div>
+                        <div class="comment-container p-3 m-3">
+                            <div class="" ng-repeat="comment in content.comments">
+                                <div class="comment">
+                                    <p>{{comment.body}}</p>
+                                    <!--
+                                        Comment react button container
+                                    -->
+                                    <div class="container">
+                                        <div class="row reactBtn-container">
+                                            <!-- upvotes -->
+                                            <div class="col-3 react-btn" title="upvote" ng-click="commentReact(comment.uid,'upvote',$index)">
+                                                <span ng-class="{reacted : comment.user_upvoted, notReacted : !comment.user_upvoted, disabled : comment.user_downvoted}"><i class="fas fa-chevron-up"></i>&nbsp; | &nbsp;{{comment.upvotes}}</span>
+                                            </div>
+                                            <!-- downvotes -->
+                                            <div class="col-3 react-btn" title="downvote" ng-click="commentReact(comment.uid,'downvote',$index)">
+                                                <span ng-class="{reacted : comment.user_downvoted, notReacted : !comment.user_downvoted, disabled : comment.user_downvoted}"><i class="fas fa-chevron-down" ></i>&nbsp; | &nbsp;{{content.downvotes}}</span>
+                                            </div>
+                                            <!-- Reply -->
+                                            <div class="col-3 react-btn" title="Reply">
+                                                <span>Reply</span><span> | </span><span>{{comment.commentedBy.name.firstName}}</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="thread-container p-3 m-3">
+                                    <p ng-repeat="thread in content.comments.thread">{{thread.body}} </p>
+                                    <!--
+                                        Thread react button container
+                                    -->
+                                    <div class="container">
+                                        <div class="row reactBtn-container">
+                                            <!-- upvotes -->
+                                            <div class="col-3 react-btn" title="upvote" ng-click="threadReact(thread.uid,'upvote',$index)">
+                                                <span ng-class="{reacted : thread.user_upvoted, notReacted : !thread.user_upvoted, disabled : thread.user_downvoted}"><i class="fas fa-chevron-up"></i>&nbsp; | &nbsp;{{thread.upvotes}}</span>
+                                            </div>
+                                            <!-- downvotes -->
+                                            <div class="col-3 react-btn" title="downvote" ng-click="threadReact(thread.uid,'downvote',$index)">
+                                                <span ng-class="{reacted : thread.user_downvoted, notReacted : !thread.user_downvoted, disabled : thread.user_downvoted}"><i class="fas fa-chevron-down" ></i>&nbsp; | &nbsp;{{thread.downvotes}}</span>
+                                            </div>
+                                            <!-- commented by -->
+                                            <div class="col-6"><a href="">{{thread.commented_by.name.firstName}}</a></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <br>
+                    <!--Answer this question-->
+                    <div class="answer-btn-container" ng-if="!userData.user_asked && !userData.user_answered && userLoggedIn" align="center">
+                        <a href="/content/#/answer/{{questionData.uid}}">
+                            <button class="btn btn-codepark">Answer this question</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--Asked By Details-->
+        <div class="col-lg-3 col-md-4 col-sm-4 view-details text-vsmall">
+            <div class="card text-center">
+                <div class="col-lg-12 col-sm-12">
+                    <!--askedby image-->
+                    <div class="image-image-container">
+                        <img src="{{questionData.askedBy_profileImage}}" alt="{{questionData.askedBy_name.firstName}}" class="rounded-circle avatar-medium">
+                    </div>
+                    <!--Askedby details-->
+                    <div class="details-container">
+                        <a href="/u/{{questionData.uid}}">
+                            <span class="author-name font-weight-normal">
+                                <span ng-if="!userData.user_asked">{{questionData.askedBy_name.fullName}}</span><span ng-if="userData.user_asked">You </span>
+                        </a>
+                     </span> asked this.</span>
+                    </div>
+                </div>
+                <!--Posted on details-->
+                <div class="post-date-container col-lg-12 col-sm-12">
+                    Posted on {{questionData.createdAt | date:"MMM dd, yyyy"}}  <hr>
+                </div>
+                <!--answered by details-->
+                <div class="askedby-details-container col-lg-12 col-sm-12" ng-if="questionData.answered">
+                    <span ng-repeat="answer in answerData" class="mr-3">
+                        Answered by {{answer.answeredBy.name.firstName}} <img src="{{answer.answeredBy.profileImage}}" alt="{{answer.answeredBy.name.firstName}}" class="circle avatar-v-small">
+                    </span>
+                    <!--on {{answer.timestamps | date:"MMM dd, yyyy"}}-->
+                </div>
+                <div class="no-answer" ng-if="!questionData.answered">
+                    No Answer Yet <br>
+                    <!--Answer this question-->
+                    <div class="answer-btn-container pt-3" ng-if="!userData.user_asked && !userData.user_answered && userLoggedIn" align="center">
+                        <a href="/content/#/answer/{{questionData.uid}}">
+                            <button class="btn btn-outline-codepark">Answer this question</button>
+                        </a>
+                    </div>
+                    <hr>
+                </div>
+                <!--engagements-->
+                <div class="enagagements-container col-lg-12col-sm-12">
+                    <h3>{{questionData.views}}
+                        <span class="text-small" ng-if="questionData.views > 1">views</span>
+                        <span class="text-small" ng-if="questionData.views <= 1">view</span>
+                        <hr class="hr-half">
+                    </h3>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
