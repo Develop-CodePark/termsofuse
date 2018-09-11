@@ -427,6 +427,8 @@ html,body {
 }
 .editor {
 	text-align: left;
+	min-height: 200px;
+	overflow: auto;
 }
 .submit-answer {
 	display: flex;
