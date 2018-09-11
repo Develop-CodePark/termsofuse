@@ -350,7 +350,7 @@ html,body {
 }
 .answer-column {
 	display: grid;
-	grid-template-columns: 17% 60% 23%;
+	grid-template-columns: 17% 60% 21%;
 	grid-column-gap: 1rem;
 }
 .answer-feed {
@@ -379,6 +379,8 @@ html,body {
 	padding: .1rem;
 	height: 320px;
 	text-align: center;
+	position: sticky;
+	top: 111px;
 }
 .asker-detail {
 	border-radius: 50%;
@@ -423,6 +425,29 @@ html,body {
 .hr-ninetyfive {
 	width: 95%;
 }
+.editor {
+	text-align: left;
+}
+.submit-answer {
+	display: flex;
+	justify-content: center;
+}
+.submit-btn {
+	padding: .7rem 1rem .7rem 1rem;
+	border: 1px solid rgba(0,0,0,0.3);
+	color: #00B389;
+	background-color: #fff;
+	margin: 1rem;
+	cursor: pointer;
+}
+.submit-btn:hover {
+	background-color: #00B389;
+	color: #fff;
+	border: 1px solid #00B389;
+}
+[contenteditable]:focus {
+    outline: 0px solid transparent;
+}
 hr {
 	border-top: 1px solid rgb(0,0,0,0.1);
 	margin-top: 1rem;
@@ -445,6 +470,9 @@ hr {
 		display: none;
 	}
 	.add {
+		display: none;
+	}
+	.question-detail {
 		display: none;
 	}
 	.user-img {
