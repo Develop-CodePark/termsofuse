@@ -14,7 +14,6 @@
     <link rel="stylesheet" type="text/css" href="aditya.css">
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="stylesheets/prism.css">
-    <script src="vendors/typed.min.js"></script>
     <script src="javascripts/prism.js"></script>
 </head>
 <body>
@@ -31,7 +30,7 @@
             </li> -->
             <li class="icons">
                 <div class="notifications" onclick="notifications()">
-                    <i class="material-icons bell">notifications_none</i>
+                    <i class="material-icons bell"></i>
                     <div class="notif-content">
                         <span><a class="notif-item" href="">Item 5</a></span>
                         <span><a class="notif-item" href="">Item 6</a></span>
@@ -66,7 +65,7 @@
         <div class="answer-feed">
             <div class="answer-feed-question">
             	<img src="images/user.jpg" class="answer-feed-img">
-            	<p><a href="" class="anchor">Asker</a> asked this</p>
+            	<p><a href="" class="anchor">User</a> asked this</p>
             </div>
             <div class="topic">
             	<h3 class="question-title">Dynamic Array</h3>
@@ -74,10 +73,21 @@
             </div>
             <div class="tags">
             	<i class="material-icons">local_offer</i>
-            	<a href="" class="anchor tags-item">hackerrank</a>
-            	<a href="" class="anchor tags-item">array</a>
-            	<a href="" class="anchor tags-item">dynamic</a>
+            	<a href="#" class="anchor tags-item">hackerrank</a>
+            	<a href="#" class="anchor tags-item">array</a>
+            	<a href="#" class="anchor tags-item">dynamic</a>
             </div><hr class="hr-ninetyfive">
+            <div class="language-select">
+              <select class="select-btn">
+                <option value="0">Select Language</option>
+                <option value="1">C</option>
+                <option value="2">C++</option>
+                <option value="3">Java</option>
+                <option value="4">JavaScript</option>
+                <option value="5">Python2</option>
+                <option value="6">Python3</option>
+              </select>
+            </div>
             <pre contenteditable class="language-sql editor" data-linenumber="0">
 	          	<code>select * from as aa where;</code>
 			</pre>
@@ -87,12 +97,13 @@
         </div>
     	<div class="question-detail">
     		<img src="images/user.jpg" class="asker-detail">
-    		<p><a href="" class="anchor">Asker</a> asked this</p>
+    		<p><a href="" class="anchor">User</a> asked this</p>
     		<p>Posted on Sep 10, 2018</p><hr class="hr-asker-detail-1">
-    		<p class="question-detail-answeredby">Answered by XYZ
+    		<!-- <p class="question-detail-answeredby">Answered by XYZ
     			<img src="images/user.jpg" class="question-detail-answeredby-img">
-    		</p>
-    		<p class="question-detail-noview">X view</p><hr class="hr-asker-detail-2">
+    		</p> -->
+            <p class="question-detail-followedby">Followed by: Y users</p><hr class="hr-sixty">
+    		<p class="question-detail-noview">X views</p><hr class="hr-asker-detail-2">
     	</div>
     </section>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
