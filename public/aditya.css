@@ -92,6 +92,14 @@ html,body {
 	content: "notifications";
 	color: #eee;
 }
+.notifications:active .material-icons.bell::before {
+	content: "notifications";
+	color: #eee;
+}
+/*.notif-active .material-icons.bell::before {
+	content: "notifications";
+	color: #eee;
+}*/
 .add {
 	margin-left: 1rem;
 	color: #eee;
@@ -360,6 +368,7 @@ html,body {
 	margin-top: 1.1px;
 	grid-column-start: 2;
 	grid-column-end: 3;
+	box-shadow: 0 1px 1px rgba(0,0,0,.15);
 }
 .answer-feed-question {
 	padding: 1rem;
@@ -383,6 +392,7 @@ html,body {
 	text-align: center;
 	position: sticky;
 	top: 111px;
+	box-shadow: 0 1px 1px rgba(0,0,0,.15);
 }
 .asker-detail {
 	border-radius: 50%;
@@ -446,6 +456,7 @@ html,body {
 	text-align: left;
 	min-height: 200px;
 	overflow: auto;
+	margin: 0px !important;
 }
 .submit-answer {
 	display: flex;
@@ -491,6 +502,10 @@ html,body {
 }
 .select-btn:after {
 	border-radius: 10px;
+}
+.answered-user {
+	margin-top:-24px;
+	margin-bottom: -15px;
 }
 hr {
 	border-top: 1px solid rgb(0,0,0,0.1);
