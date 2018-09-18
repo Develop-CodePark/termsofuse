@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html ng-app="codepark" ng-controller="dashboardController">
+
+<head>
+    <!-- <base href="/dashboard"> -->
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta name="keywords" content="CodePark,code,sharing,Coding,Codepark.in,Raj Chandra,startup">
+    <meta name="author" content="CodePark">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ask a Question</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" type="text/css" href="aditya.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="stylesheets/prism.css">
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="tag.css">
+    <script src="tag.js"></script>
+    <script src="autofill.js"></script>
+    <script src="javascripts/prism.js"></script>
+    <script>
+        $(function() {
+            $("#question-tags").tags({
+                unique: true,
+                maxTags: 5
+            }).autofill({
+                data: ["javascript","java","c","c++","python","html","css","jquery"]
+            });
+        });
+    </script>
+</head>
+<body>
+    <nav class="navbar">
+        <ul class="navbar-menu">
+            <li class="nav-brand">
+                <img src="images/logo_codepark.jpg" style="height: 30px;">
+            </li>
+            <!-- <li class="search-li">
+                <form class="search-form">
+                    <input type="text" class="search-field" placeholder="">
+                    <button class="search-submit"><i class="material-icons search-icon">search</i></button>
+                </form>
+            </li> -->
+            <li class="icons">
+                <div class="notifications" onclick="notifications()">
+                    <i class="material-icons bell"></i>
+                    <div class="notif-content">
+                        <span><a class="notif-item" href="">Item 5</a></span>
+                        <span><a class="notif-item" href="">Item 6</a></span>
+                        <span><a class="notif-item" href="">Item 7</a></span>
+                        <span><a class="notif-item" href="">Item 8</a></span>
+                    </div>
+                </div>
+                <i class="material-icons add">playlist_add</i>
+                <!-- <div class="user-img"> -->
+                <div class="user-img-div">
+                    <div class="dropdown" onclick="userDetails()">
+                        <img class="user-img" src="images/user.jpg">
+                        <i class="material-icons caret-down">arrow_drop_down</i>
+                        <div class="dropdown-content">
+                            <span><a class="settings-item" href="">Item 1</a></span>
+                            <span><a class="settings-item" href="">Item 2</a></span>
+                            <span><a class="settings-item" href="">Item 3</a></span>
+                            <span><a class="settings-item" href="">Item 4</a></span>
+                        </div>
+                    </div>
+                </div>
+                    <!-- <ul class="user-content"> -->
+                        <!-- <li>Item1</li>
+                        <li>Item2</li>
+                        <li>Item3</li>
+                    </ul>
+                </div> -->
+            </li>
+        </ul>
+    </nav><br><br>
+    <section class="dashboard answer-column container">
+        <div class="answer-feed question-feed">
+        	<h1 class="add-ques-heading">Ask a question...</h1>
+        	<div class="question-div">
+        		<b><label for="question-title">Title</label></b><br>
+        		<input type="text" id="question-title" class="question-title" placeholder="">
+        		<b><label for="question-title-detail">Detail</label></b><br>        		
+        		<div id="question-title-detail" class="question-title-detail" contenteditable="true"></div>
+            </div><br><hr class="ninetyfive">
+            <b><label for="question-tags">Tags</b> (Maximum 5 tags)</label><br>
+        		<input type="text" id="question-tags" class="question-title" placeholder="Max 5 tags">
+        	<div class="submit-answer">
+    			<button type="submit" class="submit-btn">Submit</button>
+    		</div>
+        </div>
+    	<div class="question-detail">
+    		<img src="images/user.jpg" class="asker-detail">
+    		<p><a href="" class="anchor">User</a> asked this</p>
+    		<p>Posted on Sep 10, 2018</p><hr class="hr-asker-detail-1">
+            <p class="question-detail-followedby">Followed by: Y users</p><hr class="hr-sixty">
+    		<p class="question-detail-noview">X views</p><hr class="hr-asker-detail-2">
+    	</div>
+    </section>    
+    <script>
+        function userDetails() {
+            $(".dropdown-content").toggleClass("dropdown-content-click");
+        }
+        function notifications() {
+            console.log("notifications clicked");
+            $(".notif-content").toggleClass("notif-clicked");
+        }
+        window.onclick = function(event) {          
+            if ((!event.target.matches('.caret-down'))&&(!event.target.matches('.user-img'))&&(!event.target.matches('.dropdown'))) {                
+                var dropdowns = document.getElementsByClassName("dropdown-content");
+                var i;
+                for (i = 0; i < dropdowns.length; i++) {
+                    var openDropdown = dropdowns[i];
+                    if (openDropdown.classList.contains('dropdown-content-click')) {
+                        openDropdown.classList.remove('dropdown-content-click');
+                    }
+                }
+            }
+            if ((!event.target.matches('.notifications'))&&(!event.target.matches('.bell'))) {
+                var notifdd = document.getElementsByClassName("notif-content");
+                var i;
+                for(i=0;i<notifdd.length;i++) {
+                    var opendd=notifdd[i];
+                    if(opendd.classList.contains('notif-clicked')) {
+                        opendd.classList.remove('notif-clicked');                        
+                    }
+                }
+            }
+        }
+            
+    </script>
+</body>
